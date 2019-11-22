@@ -10,19 +10,6 @@ public class ClientLogin extends Packet{
 	public ClientLogin() {}
 
 	@Override
-	public void writePacketBody(ByteBuf buf) {
-	}
-
-	@Override
-	public void readPacketBody(ByteBuf buf) {
-	}
-
-	@Override
-	public String toString() {
-		return null;
-	}
-
-	@Override
 	public PacketType getPacketType() {
 		return PacketType.ClientLogin;
 	}

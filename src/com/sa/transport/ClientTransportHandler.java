@@ -51,6 +51,7 @@ public class ClientTransportHandler extends ChannelInboundHandlerAdapter {
 	public void channelRead(ChannelHandlerContext ctx, Object msg)
 			throws Exception{
 		Packet  packet = (Packet) msg;
+		//System.out.println("【"+ctx+"】");
 		System.out.println(packet.toString());
 //		packet.printPacket(ClientConfigs.CONSOLE_FLAG, "", packet.toString());
 
