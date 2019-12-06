@@ -13,9 +13,11 @@ import com.sa.service.client.ClientResponebAll;
 import com.sa.service.client.ClientResponebOne;
 import com.sa.service.client.ClientResponebRoom;
 import com.sa.service.client.ClientResponebRoomChat;
+import com.sa.service.client.ClientResponebRoomTeacher;
 import com.sa.service.client.ClientResponebRoomUser;
 import com.sa.service.client.ClientResponebShareGet;
 import com.sa.service.client.ClientResponebShareUpd;
+import com.sa.service.client.ClientResponebShareUpdSelf;
 import com.sa.service.client.ClientResponecAgreeApplyAuth;
 import com.sa.service.client.ClientResponecApplyAuth;
 import com.sa.service.client.ClientResponecBegin;
@@ -29,9 +31,11 @@ import com.sa.service.server.ServerRequestbAll;
 import com.sa.service.server.ServerRequestbOne;
 import com.sa.service.server.ServerRequestbRoom;
 import com.sa.service.server.ServerRequestbRoomChat;
+import com.sa.service.server.ServerRequestbRoomTeacher;
 import com.sa.service.server.ServerRequestbRoomUser;
 import com.sa.service.server.ServerRequestbShareGet;
 import com.sa.service.server.ServerRequestbShareUpd;
+import com.sa.service.server.ServerRequestbShareUpdSelf;
 import com.sa.service.server.ServerRequestcAgreeApplyAuth;
 import com.sa.service.server.ServerRequestcApplyAuth;
 import com.sa.service.server.ServerRequestcBegin;
@@ -61,7 +65,10 @@ public enum PacketType {
 		ServerRequestbAll((short) 303, ServerRequestbAll.class),			// 上行 发消息-所有人
 		ServerRequestbRoomUser((short) 304, ServerRequestbRoomUser.class),// 上行 房间内用户列表
 		ServerRequestbRoomChat((short) 313, ServerRequestbRoomChat.class),// 上行 房间聊天记录
+		ServerRequestbRoomTeacher((short) 322, ServerRequestbRoomTeacher.class),// 上行 房间内用户列表
+
 		// 共享上行数据包
+		ServerRequestbShareUpdSelf((short) 323, ServerRequestbShareUpdSelf.class),// 上行 房间内用户列表
 		ServerRequestbShareGet((short) 305, ServerRequestbShareGet.class),	// 上行 获取共享
 		//ServerRequestbShareHistory((short) 315, ServerRequestbShareHistory.class),// 上行 获取共享历史
 		ServerRequestbShareUpd((short) 306, ServerRequestbShareUpd.class),	// 上行 修改共享
@@ -82,8 +89,11 @@ public enum PacketType {
 		ClientResponebRoom((short)402, ClientResponebRoom.class),		// 下行 发消息-房间内
 		ClientResponebAll((short)403, ClientResponebAll.class),			// 下行 发消息-所有人
 		ClientResponebRoomUser((short)404,ClientResponebRoomUser.class),	// 下行 房间内用户列表
+		ClientResponebRoomTeacher((short)422,ClientResponebRoomTeacher.class),	// 下行 房间内用户列表
+
 		ClientResponebRoomChat((short)413,ClientResponebRoomChat.class), // 下行 房间聊天记录
 		// 共享下行行数据包
+		ClientResponebShareUpdSelf((short)423,ClientResponebShareUpdSelf.class),	// 下行 房间内用户列表
 		ClientResponebShareGet((short)405,ClientResponebShareGet.class), // 下行 获取共享内容
 		//ClientResponebShareHistory((short)415,ClientResponebShareHistory.class),// 下行 获取共享历史
 		ClientResponebShareUpd((short)406,ClientResponebShareUpd.class), // 下行 共享修改

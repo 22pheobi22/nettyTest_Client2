@@ -14,9 +14,11 @@ import com.sa.service.server.ServerRequestbAll;
 import com.sa.service.server.ServerRequestbOne;
 import com.sa.service.server.ServerRequestbRoom;
 import com.sa.service.server.ServerRequestbRoomChat;
+import com.sa.service.server.ServerRequestbRoomTeacher;
 import com.sa.service.server.ServerRequestbRoomUser;
 import com.sa.service.server.ServerRequestbShareGet;
 import com.sa.service.server.ServerRequestbShareUpd;
+import com.sa.service.server.ServerRequestbShareUpdSelf;
 import com.sa.service.server.ServerRequestcAgreeApplyAuth;
 import com.sa.service.server.ServerRequestcApplyAuth;
 import com.sa.service.server.ServerRequestcBegin;
@@ -24,6 +26,7 @@ import com.sa.service.server.ServerRequestcGag;
 import com.sa.service.server.ServerRequestcNotGag;
 import com.sa.service.server.ServerRequestcRemove;
 import com.sa.service.server.ServerRequestcRoomRemove;
+import com.sa.service.server.ServerRequestcShareRemove;
 import com.sa.transport.ChatClient;
 import com.sa.transport.ClientConfigs;
 
@@ -41,20 +44,33 @@ public class StartClient {
 			"3.一对多[房间]消息;",
 			"4.一对多[全部]消息;",
 			"5.获取房间内用户列表;",
+			"19.获取房间内普通教师列表;",
+
 			"6.全员禁言;",
 			"66.指定用户禁言;",
 			"7.全员解除禁言;",
 			"77.指定用户解除禁言;",
-			"8.移除共享;",
-			"9.登出;",
-			"10.更新共享;",
-			"11.获取共享;",
+			
 			"13.移除房间;",
 			"14.踢人;",
 			"15.开课;",
 			"16.房间聊天记录;",
 			"17.申请开通权限;",
 			"18.申请开通权限同意;",
+			
+			"8.移除共享;",
+			"10.更新共享--添加单个值;",
+			"10.1.更新共享--添加集合;",
+			"11.获取共享--单个值;",
+			"11.1.获取共享--集合;",
+			"20.更新共享--按索引更新集合;",
+			"21.更新共享--按值更新集合;",
+			"22.更新共享--仅回调--添加单个值;",
+			"22.1.更新共享--仅回调--添加集合;",
+			"23.更新共享--仅回调--按索引更新集合;",
+			"24.更新共享--仅回执--按值更新集合;",
+			
+			"9.登出;",
 			"0.退出测试;"
 	);
 
@@ -237,7 +253,19 @@ public class StartClient {
 
 			serverRequestcAgreeApplyAuth.execPacket();
 			break;
-		case "10": // 更新共享
+		case "8": // 移除共享
+			ServerRequestcShareRemove serverRequestcShareRemove = new ServerRequestcShareRemove();
+			serverRequestcShareRemove.setFromUserId("147080");
+			serverRequestcShareRemove.setRoomId("22421,");
+			serverRequestcShareRemove.setTransactionId(15724);
+			serverRequestcShareRemove.setStatus(0);
+			TreeMap<Integer,Object> shareRemoveMap = new TreeMap<>();
+			shareRemoveMap.put(1, "starcount");
+			serverRequestcShareRemove.setOptions(shareRemoveMap);
+
+			serverRequestcShareRemove.execPacket();
+			break;	
+		case "10": // 更新共享--添加单个值
 			ServerRequestbShareUpd serverRequestbShareUpd = new ServerRequestbShareUpd();
 			serverRequestbShareUpd.setFromUserId("147080");
 			serverRequestbShareUpd.setRoomId("22421");
@@ -252,6 +280,21 @@ public class StartClient {
 			serverRequestbShareUpd.execPacket();
 
 			break;	
+		case "10.1": // 更新共享--添加集合
+			ServerRequestbShareUpd serverRequestbShareUpd3 = new ServerRequestbShareUpd();
+			serverRequestbShareUpd3.setFromUserId("147080");
+			serverRequestbShareUpd3.setRoomId("22421");
+			serverRequestbShareUpd3.setTransactionId(15724);
+			serverRequestbShareUpd3.setStatus(0);
+			TreeMap<Integer,Object> updateShareMap3 = new TreeMap<>();
+			updateShareMap3.put(1, "starcount");
+			updateShareMap3.put(2, "{'20147080':8}");
+			updateShareMap3.put(3, "n");
+			updateShareMap3.put(4, "upd");
+			serverRequestbShareUpd3.setOptions(updateShareMap3);
+
+			serverRequestbShareUpd3.execPacket();
+			break;
 		case "11": // 获取共享
 			ServerRequestbShareGet serverRequestbShareGet = new ServerRequestbShareGet();
 			serverRequestbShareGet.setFromUserId("147080");
@@ -264,11 +307,131 @@ public class StartClient {
 			serverRequestbShareGet.setOptions(getShareMap);
 			serverRequestbShareGet.execPacket();
 			break;
+		case "11.1": // 获取共享
+			ServerRequestbShareGet serverRequestbShareGet4 = new ServerRequestbShareGet();
+			serverRequestbShareGet4.setFromUserId("147080");
+			serverRequestbShareGet4.setRoomId("22421");
+			serverRequestbShareGet4.setTransactionId(15724);
+			serverRequestbShareGet4.setStatus(0);
+			
+			TreeMap<Integer,Object> getShareMap4 = new TreeMap<>();
+			getShareMap4.put(1, "starcount");
+			getShareMap4.put(2, "n");
+			serverRequestbShareGet4.setOptions(getShareMap4);
+			
+			serverRequestbShareGet4.execPacket();
+
+			break;
+			
+		case "19": // 获取房间内普通教师列表
+			ServerRequestbRoomTeacher serverRequestbRoomTeacher = new ServerRequestbRoomTeacher();
+			serverRequestbRoomTeacher.setFromUserId("147080");
+			serverRequestbRoomTeacher.setRoomId("22421");
+			serverRequestbRoomTeacher.setTransactionId(15724);
+			serverRequestbRoomTeacher.setStatus(0);
+			serverRequestbRoomTeacher.execPacket();
+			break;
 
 		case "9":
 			serverLoginOut();
 			break;
+		case "20": // 更新共享
+			ServerRequestbShareUpd serverRequestbShareUpd1 = new ServerRequestbShareUpd();
 			
+			serverRequestbShareUpd1.setFromUserId("147080");
+			serverRequestbShareUpd1.setRoomId("22421");
+			serverRequestbShareUpd1.setTransactionId(15724);
+			serverRequestbShareUpd1.setStatus(0);
+			TreeMap<Integer,Object> updateShareMap1 = new TreeMap<>();
+			updateShareMap1.put(1, "starcount");
+			updateShareMap1.put(2, "shareUpdIndex");
+			//updateShareMap1.put(2, "{'20147076':'1','20147078':'0','20147079':'0','20147080':'80','20147081':'81','20147082':'82'}");
+			updateShareMap1.put(3, "n");
+			updateShareMap1.put(4, "upd.index");
+			updateShareMap1.put(5, "0");
+			serverRequestbShareUpd1.setOptions(updateShareMap1);
+
+			serverRequestbShareUpd1.execPacket();
+			break;
+		case "21": // 更新共享
+			ServerRequestbShareUpd serverRequestbShareUpd2 = new ServerRequestbShareUpd();
+			serverRequestbShareUpd2.setFromUserId("147080");
+			serverRequestbShareUpd2.setRoomId("22421");
+			serverRequestbShareUpd2.setTransactionId(15724);
+			serverRequestbShareUpd2.setStatus(0);
+			TreeMap<Integer,Object> updateShareMap2 = new TreeMap<>();
+			updateShareMap2.put(1, "starcount");
+			updateShareMap2.put(8, "{'20147080':88}");
+			updateShareMap2.put(3, "n");
+			updateShareMap2.put(4, "upd.value");
+			updateShareMap2.put(2, "shareUpdValue");			
+			serverRequestbShareUpd2.setOptions(updateShareMap2);
+
+			serverRequestbShareUpd2.execPacket();
+			break;
+		case "22": // 更新共享
+			ServerRequestbShareUpdSelf serverRequestbShareUpdSelf2 = new ServerRequestbShareUpdSelf();
+			serverRequestbShareUpdSelf2.setFromUserId("147080");
+			serverRequestbShareUpdSelf2.setRoomId("22421");
+			serverRequestbShareUpdSelf2.setTransactionId(15724);
+			serverRequestbShareUpdSelf2.setStatus(0);
+			TreeMap<Integer,Object> updateShareSelf2 = new TreeMap<>();
+			updateShareSelf2.put(1, "starcount");
+			updateShareSelf2.put(2, "{'20147076':'1','20147078':'0','20147079':'0','20147080':'80','20147081':'81','20147082':'82'}");
+			updateShareSelf2.put(3, "1");
+			updateShareSelf2.put(4, "upd");
+			serverRequestbShareUpdSelf2.setOptions(updateShareSelf2);
+
+			serverRequestbShareUpdSelf2.execPacket();
+			break;	
+		case "22.1": // 更新共享
+			ServerRequestbShareUpdSelf serverRequestbShareUpdSelf3 = new ServerRequestbShareUpdSelf();
+			serverRequestbShareUpdSelf3.setFromUserId("147080");
+			serverRequestbShareUpdSelf3.setRoomId("22421");
+			serverRequestbShareUpdSelf3.setTransactionId(15724);
+			serverRequestbShareUpdSelf3.setStatus(0);
+			TreeMap<Integer,Object> updateShareSelf3 = new TreeMap<>();
+			updateShareSelf3.put(1, "starcount");
+			updateShareSelf3.put(2, "{'20147080':8}");
+			updateShareSelf3.put(3, "n");
+			updateShareSelf3.put(4, "upd");
+			serverRequestbShareUpdSelf3.setOptions(updateShareSelf3);
+
+			serverRequestbShareUpdSelf3.execPacket();
+			break;
+		case "23": // 更新共享
+			ServerRequestbShareUpdSelf serverRequestbShareUpdSelf = new ServerRequestbShareUpdSelf();
+			serverRequestbShareUpdSelf.setFromUserId("147080");
+			serverRequestbShareUpdSelf.setRoomId("22421");
+			serverRequestbShareUpdSelf.setTransactionId(15724);
+			serverRequestbShareUpdSelf.setStatus(0);
+			TreeMap<Integer,Object> updateShareMapSelf = new TreeMap<>();
+			updateShareMapSelf.put(1, "starcount");
+			updateShareMapSelf.put(2, "shareUpdSelfIndex");
+			//updateShareMap1.put(2, "{'20147076':'1','20147078':'0','20147079':'0','20147080':'80','20147081':'81','20147082':'82'}");
+			updateShareMapSelf.put(3, "n");
+			updateShareMapSelf.put(4, "upd.index");
+			updateShareMapSelf.put(5, "0");
+			serverRequestbShareUpdSelf.setOptions(updateShareMapSelf);
+
+			serverRequestbShareUpdSelf.execPacket();
+			break;
+		case "24": // 更新共享
+			ServerRequestbShareUpdSelf serverRequestbShareUpdSelf1 = new ServerRequestbShareUpdSelf();
+			serverRequestbShareUpdSelf1.setFromUserId("T366");
+			serverRequestbShareUpdSelf1.setRoomId("22421");
+			serverRequestbShareUpdSelf1.setTransactionId(15724);
+			serverRequestbShareUpdSelf1.setStatus(0);
+			TreeMap<Integer,Object> updateShareMapSelf1 = new TreeMap<>();
+			updateShareMapSelf1.put(1, "starcount");
+			updateShareMapSelf1.put(8, "{'20147080':8}");
+			updateShareMapSelf1.put(3, "n");
+			updateShareMapSelf1.put(4, "upd.value");
+			updateShareMapSelf1.put(2, "shareUpdSelfValue");
+			serverRequestbShareUpdSelf1.setOptions(updateShareMapSelf1);
+
+			serverRequestbShareUpdSelf1.execPacket();
+			break;
 		default:
 			System.err.println("无此功能");
 			break;
