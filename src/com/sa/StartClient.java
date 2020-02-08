@@ -233,6 +233,7 @@ public class StartClient {
 			ServerRequestcApplyAuth serverRequestcApplyAuth = new ServerRequestcApplyAuth();
 			serverRequestcApplyAuth.setFromUserId("147080");
 			serverRequestcApplyAuth.setRoomId("22421");
+			serverRequestcApplyAuth.setToUserId("147081");
 			serverRequestcApplyAuth.setTransactionId(15724);
 			serverRequestcApplyAuth.setStatus(0);
 			TreeMap<Integer,Object> applyAuthMap = new TreeMap<>();
@@ -245,6 +246,7 @@ public class StartClient {
 			ServerRequestcAgreeApplyAuth serverRequestcAgreeApplyAuth = new ServerRequestcAgreeApplyAuth();
 			serverRequestcAgreeApplyAuth.setFromUserId("147080");
 			serverRequestcAgreeApplyAuth.setRoomId("22421");
+			serverRequestcAgreeApplyAuth.setToUserId("147081");
 			serverRequestcAgreeApplyAuth.setTransactionId(15724);
 			serverRequestcAgreeApplyAuth.setStatus(0);
 			TreeMap<Integer,Object> agreeApplyAuthMap = new TreeMap<>();
@@ -361,7 +363,7 @@ public class StartClient {
 			serverRequestbShareUpd2.setStatus(0);
 			TreeMap<Integer,Object> updateShareMap2 = new TreeMap<>();
 			updateShareMap2.put(1, "starlist");
-			updateShareMap2.put(8, "{'20147080':88}");
+			updateShareMap2.put(8, "{'20147080':8}");
 			updateShareMap2.put(3, "n");
 			updateShareMap2.put(4, "upd.value");
 			updateShareMap2.put(2, "shareUpdValue");			
