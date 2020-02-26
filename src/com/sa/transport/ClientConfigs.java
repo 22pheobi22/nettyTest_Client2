@@ -4,7 +4,7 @@ package com.sa.transport;
 public class ClientConfigs {
 
 	/**  服务器ip */
-	public static String REMOTE_SERVER_IP = "192.168.21.115";
+	public static String REMOTE_SERVER_IP = "192.168.0.169";
 
 	/**  服务器端口 */
 	public static int REMOTE_SERVER_PORT = 8180;//8080
