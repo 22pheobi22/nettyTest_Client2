@@ -74,7 +74,7 @@ public class StartClient {
 		 //获取当前时间
        LocalDateTime nowTime= LocalDateTime.now();
        //自定义时间
-       LocalDateTime endTime = LocalDateTime.of(2020, 02, 27, 16, 00, 00);
+       LocalDateTime endTime = LocalDateTime.of(2020, 02, 27, 16, 50, 00);
        //比较   现在的时间 和 设定的时候  相等  返回类型是Boolean类型
 		return nowTime.equals(endTime);
 	}
@@ -82,7 +82,7 @@ public class StartClient {
 		 //获取当前时间
       LocalDateTime nowTime= LocalDateTime.now();
       //自定义时间
-      LocalDateTime endTime = LocalDateTime.of(2020, 02, 27, 16, 20, 00);
+      LocalDateTime endTime = LocalDateTime.of(2020, 02, 27, 17, 00, 00);
       //比较   现在的时间 和 设定的时候  相等  返回类型是Boolean类型
 		return nowTime.equals(endTime);
 	}
