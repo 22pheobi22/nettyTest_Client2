@@ -12,6 +12,7 @@ import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.timeout.IdleStateHandler;
 
 import java.net.InetSocketAddress;
+import java.util.concurrent.CountDownLatch;
 
 import com.sa.net.codec.PacketDecoder;
 import com.sa.net.codec.PacketEncoder;
@@ -22,9 +23,18 @@ public class ChatClient implements Runnable {
 	private int port;
 	private String roomId;
 	private String userid;
+	private CountDownLatch la;
 
 	/** 当前重接次数*/
 	private int reconnectTimes = 0;
+	
+	public ChatClient(CountDownLatch la,String host,int port, String roomId, String userId) {
+		this.host = host;
+		this.port = port;
+		this.roomId = roomId;
+		this.userid = userId;
+		this.la = la;
+	}
 	
 	public ChatClient(String host,int port, String roomId, String userId) {
 		this.host = host;
@@ -35,6 +45,7 @@ public class ChatClient implements Runnable {
 
 	public void run() {
 		try {
+			la.await();
 			connect(this.host, this.port);
 		} catch (Exception e) {
 			e.printStackTrace();
