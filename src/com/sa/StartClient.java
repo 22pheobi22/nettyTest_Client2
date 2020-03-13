@@ -33,7 +33,6 @@ import com.sa.service.server.ServerRequestcRoomRemove;
 import com.sa.service.server.ServerRequestcShareRemove;
 import com.sa.transport.ChatClient;
 import com.sa.transport.ClientConfigs;
-import com.sa.transport.ShareThread;
 /*public class StartClient {
 	private static int count = 100;
 	private static List<String> roomIds = Arrays.asList("房间00","房间01","房间02","房间03","房间04","房间05","房间06","房间07","房间08","房间09",
