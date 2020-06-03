@@ -34,7 +34,7 @@ public class ClientResponebRoomUser extends Packet {
 			object = this.getOption(12);
 			str = "12";
 		}
-		System.out.println("RECEIVE ClientResponebRoomUser" + str + " " + object);
+		//System.out.println("RECEIVE ClientResponebRoomUser" + str + " " + object);
 	}
 
 }

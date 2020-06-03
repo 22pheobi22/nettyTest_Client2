@@ -31,8 +31,8 @@ public class ServerRequestbRoom extends Packet {
 	@Override
 	public void execPacket() {
 		//System.out.println("SEND ServerRequestbRoom " + this.getFromUserId() + "[" + this.getOption(1) + "]");
-		this.setFromUserId("147080");
-		this.setRoomId("22421");
+		this.setFromUserId("R2T2");
+		this.setRoomId("R1,R2,");
 		this.setTransactionId(15725);
 		this.setStatus(0);
 		TreeMap<Integer,Object> treeMap = new TreeMap<>();

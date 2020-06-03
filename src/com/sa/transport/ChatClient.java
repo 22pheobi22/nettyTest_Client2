@@ -45,7 +45,7 @@ public class ChatClient implements Runnable {
 
 	public void run() {
 		try {
-			la.await();
+			//la.await();
 			connect(this.host, this.port);
 		} catch (Exception e) {
 			e.printStackTrace();

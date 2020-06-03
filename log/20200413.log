@@ -1,0 +1,242 @@
+2020-04-13 14:22:59
+============================================
+接收
+2020-04-13 14:22:59.017
+MSG TYPE:ClientResponebRoomUser
+TRANSACTION ID:	999
+ROOM ID:	R1
+FROM USER ID:	R2T2
+TO USER ID:	
+STATUS:	0
+
+11={"id":"R2T2","name":"R2T2","icon":"icon","role":["TEACHER"],"auth":[{"SPEAK":1}],"agoraId":"agoraId"}
+============================================
+
+
+2020-04-13 14:23:08
+============================================
+接收
+2020-04-13 14:23:08.296
+MSG TYPE:ClientResponecBegin
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R2T2
+TO USER ID:	R1S1
+STATUS:	0
+
+1=解除禁言
+============================================
+
+
+2020-04-13 14:24:01
+============================================
+接收
+2020-04-13 14:24:01.600
+MSG TYPE:ClientResponebShareUpd
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R2T2
+TO USER ID:	
+STATUS:	0
+
+1=starcount
+2=R2T2更新单个值
+3=1
+4=upd
+============================================
+
+
+2020-04-13 14:24:21
+============================================
+接收
+2020-04-13 14:24:21.782
+MSG TYPE:ClientResponecShareRemove
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R2T2
+TO USER ID:	
+STATUS:	0
+
+1=starcount
+============================================
+
+
+2020-04-13 14:24:26
+============================================
+接收
+2020-04-13 14:24:26.295
+MSG TYPE:ClientResponebShareGet
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R1S1
+TO USER ID:	R1S1
+STATUS:	0
+
+1=starcount
+2=1
+3=
+============================================
+
+
+2020-04-13 14:25:05
+============================================
+接收
+2020-04-13 14:25:05.775
+MSG TYPE:ClientResponebShareGet
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R1S1
+TO USER ID:	R1S1
+STATUS:	0
+
+1=starcount
+2=1
+3=R2T2upd
+============================================
+
+
+2020-04-13 14:25:19
+============================================
+接收
+2020-04-13 14:25:19.212
+MSG TYPE:ClientResponebShareUpd
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R2T2
+TO USER ID:	
+STATUS:	0
+
+1=starlist
+2={'R2T2':'888'},{'R2T2':'999'}
+3=n
+4=upd
+============================================
+
+
+2020-04-13 14:25:36
+============================================
+接收
+2020-04-13 14:25:36.432
+MSG TYPE:MsgReceipt
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R1S1
+TO USER ID:	R1S1
+STATUS:	0
+
+254=success
+============================================
+
+
+2020-04-13 14:25:43
+============================================
+接收
+2020-04-13 14:25:43.619
+MSG TYPE:ClientResponebShareGet
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R1S1
+TO USER ID:	R1S1
+STATUS:	0
+
+1=starlist
+2=n
+3=["{'R2T2':'888'},{'R2T2':'999'}","{'R2T2':'888'}"]
+============================================
+
+
+2020-04-13 14:26:44
+============================================
+接收
+2020-04-13 14:26:44.978
+MSG TYPE:MsgReceipt
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R1S1
+TO USER ID:	R1S1
+STATUS:	0
+
+254=success
+============================================
+
+
+2020-04-13 14:28:39
+============================================
+接收
+2020-04-13 14:28:39.549
+MSG TYPE:ClientResponebShareGet
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R1S1
+TO USER ID:	R1S1
+STATUS:	0
+
+1=starlist
+2=n
+3=["{'R2T2':'888'},{'R2T2':'999'}","R2T2shareUpdValue","R2T2shareUpdSelfValue"]
+============================================
+
+
+2020-04-13 14:28:49
+============================================
+接收
+2020-04-13 14:28:49.043
+MSG TYPE:MsgReceipt
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R1S1
+TO USER ID:	R1S1
+STATUS:	0
+
+254=success
+============================================
+
+
+2020-04-13 14:28:53
+============================================
+接收
+2020-04-13 14:28:53.249
+MSG TYPE:ClientResponebShareGet
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R1S1
+TO USER ID:	R1S1
+STATUS:	0
+
+1=starlist
+2=n
+3=["R2T2shareUpdSelfIndex","R2T2shareUpdValue","R2T2shareUpdSelfValue"]
+============================================
+
+
+2020-04-13 14:29:26
+============================================
+接收
+2020-04-13 14:29:26.873
+MSG TYPE:ClientResponebRoom
+TRANSACTION ID:	15724
+ROOM ID:	R1
+FROM USER ID:	R2T2
+TO USER ID:	
+STATUS:	0
+
+1={'command':'open','content':'我是R1T2，我在ServerRequestbRoom','domain':'i-clicker','domain_id':37}
+253=1586759366872
+============================================
+
+
+2020-04-13 14:29:51
+============================================
+接收
+2020-04-13 14:29:51.573
+MSG TYPE:ClientResponebRoomUser
+TRANSACTION ID:	0
+ROOM ID:	R1
+FROM USER ID:	R2T2
+TO USER ID:	R2T2
+STATUS:	0
+
+12=R2T2
+============================================
+
+

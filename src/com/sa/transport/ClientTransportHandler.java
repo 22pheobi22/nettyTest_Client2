@@ -6,6 +6,7 @@ import com.sa.base.BaseDataPool;
 import com.sa.net.Packet;
 import com.sa.net.PacketManager;
 import com.sa.service.server.ServerLogin;
+import com.sa.util.LogOutPrint;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -34,7 +35,7 @@ public class ClientTransportHandler extends ChannelInboundHandlerAdapter {
 		TreeMap<Integer, Object> options = new TreeMap<>(); // 消息记录集
 		options.put(1, fromUserId);
 		//options.put(2, "STUDENT");
-		options.put(2, "3");
+		options.put(2, "STUDENT");
 		options.put(3, fromUserId);
 		options.put(4, "icon");
 		options.put(5, "agoraId");
@@ -43,7 +44,11 @@ public class ClientTransportHandler extends ChannelInboundHandlerAdapter {
 		
 		BaseDataPool.USER_ROOM_MAP.put(fromUserId, roomId);
 		BaseDataPool.USER_CHANNEL_MAP.put(fromUserId, ctx);
-		
+		String str = "============================================\r\n"
+				+ "发送" + "\r\n" + serverLogin.toString()
+				+ "============================================\r\n";
+		System.out.println(str);
+		//LogOutPrint.log("/log", str);
 		serverLogin.execPacket();
 	}
 
@@ -52,9 +57,13 @@ public class ClientTransportHandler extends ChannelInboundHandlerAdapter {
 			throws Exception{
 		Packet  packet = (Packet) msg;
 		//System.out.println("【"+ctx+"】");
-		System.out.println(packet.toString());
+		//System.out.println(packet.toString());
 //		packet.printPacket(ClientConfigs.CONSOLE_FLAG, "", packet.toString());
-
+		String str = "============================================\r\n"
+				+ "接收" + "\r\n" + packet.toString()
+				+ "============================================\r\n";
+		//LogOutPrint.log("/log", str);
+		System.out.println(str);
 		PacketManager.INSTANCE.execPacket(packet);
 	}
 

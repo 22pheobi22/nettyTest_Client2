@@ -26,7 +26,7 @@ public class ServerLoginOut extends Packet {
 
 	@Override
 	public void execPacket() {
-		System.out.println("SEND ServerLoginOut " + this.getFromUserId());
+		//System.out.println("SEND ServerLoginOut " + this.getFromUserId());
 		ServerManager.INSTANCE.sendServerRequest(this);
 	}
 
